@@ -2,7 +2,7 @@
 // Data do evento: 17 de Outubro de 2026 às 20:00:00
 const countDownDate = new Date("Oct 17, 2026 20:00:00").getTime();
 
-const x = setInterval(function () {
+function updateCountdown() {
   const now = new Date().getTime();
   const distance = countDownDate - now;
 
@@ -16,21 +16,32 @@ const x = setInterval(function () {
 
   // Se o evento já passou ou chegou, define tudo como 0
   if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("days").innerHTML = "00";
-    document.getElementById("hours").innerHTML = "00";
-    document.getElementById("minutes").innerHTML = "00";
-    document.getElementById("seconds").innerHTML = "00";
+    document.getElementById("days").innerText = "00";
+    document.getElementById("hours").innerText = "00";
+    document.getElementById("minutes").innerText = "00";
+    document.getElementById("seconds").innerText = "00";
+    return false;
   } else {
     // Atualiza o DOM (formatando para ter sempre 2 dígitos)
-    document.getElementById("days").innerHTML =
+    document.getElementById("days").innerText =
       days < 10 ? "0" + days : days;
-    document.getElementById("hours").innerHTML =
+    document.getElementById("hours").innerText =
       hours < 10 ? "0" + hours : hours;
-    document.getElementById("minutes").innerHTML =
+    document.getElementById("minutes").innerText =
       minutes < 10 ? "0" + minutes : minutes;
-    document.getElementById("seconds").innerHTML =
+    document.getElementById("seconds").innerText =
       seconds < 10 ? "0" + seconds : seconds;
+    return true;
+  }
+}
+
+// Inicia com os valores corretos no load da página
+updateCountdown();
+
+// Continua atualizando a cada 1 segundo
+const countdownInterval = setInterval(function () {
+  if (!updateCountdown()) {
+    clearInterval(countdownInterval);
   }
 }, 1000);
 
@@ -69,8 +80,8 @@ function closeModal() {
 // --- 3. Efeito Hyper Text (Scramble) ---
 function scrambleText(element) {
   const originalText = element.innerText.trim();
-  // Usar letras variadas para o embaralhamento
-  const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%&*".split("");
+  // Usar números e símbolos variados para o embaralhamento de números
+  const alphabets = "0123456789!@#$%&*".split("");
   let iterations = 0;
   const speed = 40; // milissegundos por frame
 
@@ -101,13 +112,18 @@ function scrambleText(element) {
   }, speed);
 }
 
-// Aplicar ao título no carregamento da página
+// Aplicar apenas aos números do cronômetro no carregamento da página
 window.addEventListener('DOMContentLoaded', () => {
-  const titleElement = document.querySelector('h1');
-  if(titleElement) {
-    // Adiciona um pequeno atraso para o efeito ficar mais perceptível
-    setTimeout(() => {
-      scrambleText(titleElement);
-    }, 200);
-  }
+  const elements = [
+    document.getElementById('days'),
+    document.getElementById('hours'),
+    document.getElementById('minutes'),
+    document.getElementById('seconds')
+  ];
+  
+  elements.forEach(el => {
+    if(el) {
+      setTimeout(() => scrambleText(el), 100); // Atraso sutil para garantir inicialização
+    }
+  });
 });
