@@ -59,9 +59,55 @@ function closeModal() {
   modalContent.classList.remove("translate-y-0");
   modalContent.classList.add("translate-y-8");
 
-  // Aguarda a animação terminar antes de esconder
+// Aguarda a animação terminar antes de esconder
   setTimeout(() => {
     modal.classList.add("hidden");
     modal.classList.remove("flex");
   }, 300); // 300ms combina com o duration-300 do Tailwind
 }
+
+// --- 3. Efeito Hyper Text (Scramble) ---
+function scrambleText(element) {
+  const originalText = element.innerText.trim();
+  // Usar letras variadas para o embaralhamento
+  const alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%&*".split("");
+  let iterations = 0;
+  const speed = 40; // milissegundos por frame
+
+  // Limpa o texto inicialmente para não piscar a versão final
+  element.innerText = originalText.replace(/./g, ' ');
+
+  const interval = setInterval(() => {
+    element.innerText = originalText
+      .split("")
+      .map((letter, index) => {
+        if (letter === " ") return " ";
+        // Aos poucos, revela a letra original
+        if (index < Math.floor(iterations)) {
+          return originalText[index];
+        }
+        // Letras aleatórias para as que ainda não foram reveladas
+        return alphabets[Math.floor(Math.random() * alphabets.length)];
+      })
+      .join("");
+
+    if (iterations >= originalText.length) {
+      clearInterval(interval);
+      element.innerText = originalText;
+    }
+
+    // Controle de quão rápido as letras se revelam (menor = mais demorado)
+    iterations += 1 / 4; 
+  }, speed);
+}
+
+// Aplicar ao título no carregamento da página
+window.addEventListener('DOMContentLoaded', () => {
+  const titleElement = document.querySelector('h1');
+  if(titleElement) {
+    // Adiciona um pequeno atraso para o efeito ficar mais perceptível
+    setTimeout(() => {
+      scrambleText(titleElement);
+    }, 200);
+  }
+});
