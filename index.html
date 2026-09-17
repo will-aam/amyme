@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>18 Anos - Aymmê</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                dark: "#7A2E40", // Cor principal mais elegante e escura
+                light: "#FDF2F8",
+                accent: "#B76E79", // Tom de cobre/rose gold
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            animation: {
+              "fade-in-up": "fadeInUp 1s ease-out forwards",
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    
+    <style>
+      body {
+        background-color: #fce7f3;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-tap-highlight-color: transparent;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: -30px;
+        left: -30px;
+        right: -30px;
+        bottom: -30px;
+        background-color: #fce7f3;
+        background-image: url('https://img.magnific.com/vetores-gratis/elegante-fundo-de-tinta-de-alcool-rosa-pastel-pintado-a-mao_1048-19138.jpg?semt=ais_hybrid&w=740&q=80');
+        background-size: cover;
+        background-position: center;
+        filter: blur(12px);
+        z-index: -1;
+      }
+
+      /* Linhas decorativas minimalistas */
+      .minimal-line {
+        width: 1px;
+        height: 50px;
+        background-color: currentColor;
+        opacity: 0.2;
+        margin: 0 auto;
+      }
+      
+      /* Efeito hover elegante para os links */
+      .link-hover {
+        position: relative;
+        padding-bottom: 4px;
+      }
+      .link-hover::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 0;
+        left: 50%;
+        background-color: currentColor;
+        transition: all 0.4s ease;
+        transform: translateX(-50%);
+        opacity: 0.6;
+      }
+      .link-hover:hover::after {
+        width: 100%;
+      }
+
+      /* Ocultar scrollbar */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="text-brand-dark antialiased min-h-screen relative overflow-x-hidden flex flex-col justify-center py-12 px-6">
+    
+    <!-- Sem caixa branca, texto direto no fundo -->
+    <main class="w-full max-w-lg mx-auto animate-fade-in-up flex flex-col items-center text-center relative z-10">
+      
+      <!-- Data -->
+      <div class="mb-10 tracking-[0.4em] text-xs font-sans uppercase font-light text-brand-dark/70">
+        Sábado <span class="mx-2">•</span> 17 out 2026
+      </div>
+
+      <div class="minimal-line mb-10"></div>
+
+      <!-- Título Principal -->
+      <div class="mb-12 w-full">
+        <p class="font-serif italic text-2xl md:text-3xl text-brand-accent mb-4">celebração dos dezoito anos</p>
+        <h1 class="font-serif text-7xl md:text-[7rem] text-brand-dark leading-none tracking-tight">
+          Aymmê
+        </h1>
+      </div>
+
+      <div class="minimal-line mb-10"></div>
+
+      <!-- Relógio de Contagem (Estilo Fino e Elegante) -->
+      <div class="w-full mb-16 flex justify-center gap-6 md:gap-10 font-serif">
+        <div class="flex flex-col items-center">
+          <span class="text-4xl font-light text-brand-dark" id="days">00</span>
+          <span class="text-[9px] font-sans uppercase tracking-[0.3em] text-brand-dark/50 mt-3">Dias</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-4xl font-light text-brand-dark" id="hours">00</span>
+          <span class="text-[9px] font-sans uppercase tracking-[0.3em] text-brand-dark/50 mt-3">Hrs</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-4xl font-light text-brand-dark" id="minutes">00</span>
+          <span class="text-[9px] font-sans uppercase tracking-[0.3em] text-brand-dark/50 mt-3">Min</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-4xl font-light text-brand-dark" id="seconds">00</span>
+          <span class="text-[9px] font-sans uppercase tracking-[0.3em] text-brand-dark/50 mt-3">Seg</span>
+        </div>
+      </div>
+
+      <!-- Ações (Links Têxtuais Minimalistas) -->
+      <div class="flex flex-col gap-8 w-full items-center font-sans text-xs md:text-sm font-light uppercase tracking-[0.2em] text-brand-dark/90">
+        <a href="https://www.google.com/maps/search/?api=1&query=Condominio+parque+das+arvores,+salão+de+festas,+Aracaju" target="_blank" rel="noopener noreferrer" class="link-hover transition-all duration-200 hover:opacity-60 active:scale-95 active:opacity-40">
+          Local da Festa
+        </a>
+        <a href="https://wa.me/5579988281897?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%2018%20anos%20da%20Aymm%C3%AA!" target="_blank" rel="noopener noreferrer" class="link-hover font-medium transition-all duration-200 hover:opacity-60 active:scale-95 active:opacity-40">
+          Confirmar Presença
+        </a>
+        <button onclick="openModal()" class="link-hover transition-all duration-200 hover:opacity-60 active:scale-95 active:opacity-40 uppercase tracking-[0.2em]">
+          Sugestão de Presentes
+        </button>
+      </div>
+
+    </main>
+
+    <!-- Modal Minimalista -->
+    <div id="giftModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-brand-light/40 backdrop-blur-sm transition-opacity duration-500 opacity-0">
+      <div class="absolute inset-0" onclick="closeModal()"></div>
+      
+      <!-- Container do Modal -->
+      <div class="bg-white/60 backdrop-blur-2xl border border-white/60 w-full max-w-md max-h-[85vh] overflow-y-auto no-scrollbar shadow-2xl relative flex flex-col transform translate-y-8 transition-transform duration-500 p-10 rounded-[2rem]" id="modalContent">
+        
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-brand-dark/40 hover:text-brand-dark transition-all duration-200 active:scale-75">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+
+        <h3 class="font-serif italic text-3xl text-brand-dark mb-10 text-center font-light">Sugestões</h3>
+
+        <div class="space-y-8 font-sans">
+          <div class="text-center">
+            <h4 class="text-[10px] font-semibold text-brand-accent uppercase tracking-[0.2em] mb-2">Roupas</h4>
+            <p class="text-sm text-brand-dark/70 font-light">Tamanho P ou PP <br/> Calça: 36</p>
+          </div>
+          
+          <div class="text-center">
+            <h4 class="text-[10px] font-semibold text-brand-accent uppercase tracking-[0.2em] mb-2">Calçados</h4>
+            <p class="text-sm text-brand-dark/70 font-light">Tamanho 37 ou 38</p>
+          </div>
+
+          <div class="text-center">
+            <h4 class="text-[10px] font-semibold text-brand-accent uppercase tracking-[0.2em] mb-2">Perfumaria</h4>
+            <p class="text-sm text-brand-dark/70 font-light leading-relaxed">
+              Doce floral, Doce Cítrico, Doce Frutal<br/>
+              Body splash, Hidratantes<br/>
+              Kits de perfumaria
+            </p>
+          </div>
+
+          <div class="text-center">
+            <h4 class="text-[10px] font-semibold text-brand-accent uppercase tracking-[0.2em] mb-2">Acessórios</h4>
+            <p class="text-sm text-brand-dark/70 font-light leading-relaxed">
+              Bolsas, Colares, Pulseiras<br/>
+              Tênis, sandálias ou rasteirinhas
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center border-t border-brand-dark/10 pt-6">
+          <p class="text-[11px] text-brand-dark/50 font-light italic leading-relaxed">
+            Não precisa ser exatamente algo da lista,<br/> qualquer presente escolhido com carinho me fará feliz.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script Externo -->
+    <script>
+// --- 1. Lógica da Contagem Regressiva ---
+// Data do evento: 17 de Outubro de 2026 às 20:00:00
+const countDownDate = new Date("Oct 17, 2026 20:00:00").getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = countDownDate - now;
+
+  // Cálculos matemáticos
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+  );
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Se o evento já passou ou chegou, define tudo como 0
+  if (distance < 0) {
+    document.getElementById("days").innerText = "00";
+    document.getElementById("hours").innerText = "00";
+    document.getElementById("minutes").innerText = "00";
+    document.getElementById("seconds").innerText = "00";
+    return false;
+  } else {
+    // Atualiza o DOM (formatando para ter sempre 2 dígitos)
+    document.getElementById("days").innerText =
+      days < 10 ? "0" + days : days;
+    document.getElementById("hours").innerText =
+      hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes").innerText =
+      minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").innerText =
+      seconds < 10 ? "0" + seconds : seconds;
+    return true;
+  }
+}
+
+// Inicia com os valores corretos no load da página
+updateCountdown();
+
+// Continua atualizando a cada 1 segundo
+const countdownInterval = setInterval(function () {
+  if (!updateCountdown()) {
+    clearInterval(countdownInterval);
+  }
+}, 1000);
+
+// --- 2. Lógica do Modal ---
+const modal = document.getElementById("giftModal");
+const modalContent = document.getElementById("modalContent");
+
+function openModal() {
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+
+  // Pequeno delay para a transição de opacidade/transform funcionar
+  setTimeout(() => {
+    modal.classList.remove("opacity-0");
+    modal.classList.add("opacity-100");
+
+    modalContent.classList.remove("translate-y-8");
+    modalContent.classList.add("translate-y-0");
+  }, 10);
+}
+
+function closeModal() {
+  modal.classList.remove("opacity-100");
+  modal.classList.add("opacity-0");
+
+  modalContent.classList.remove("translate-y-0");
+  modalContent.classList.add("translate-y-8");
+
+// Aguarda a animação terminar antes de esconder
+  setTimeout(() => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }, 300); // 300ms combina com o duration-300 do Tailwind
+}
+
+// --- 3. Efeito Hyper Text (Scramble) ---
+function scrambleText(element) {
+  const originalText = element.innerText.trim();
+  // Usar números e símbolos variados para o embaralhamento de números
+  const alphabets = "0123456789!@#$%&*".split("");
+  let iterations = 0;
+  const speed = 40; // milissegundos por frame
+
+  // Limpa o texto inicialmente para não piscar a versão final
+  element.innerText = originalText.replace(/./g, ' ');
+
+  const interval = setInterval(() => {
+    element.innerText = originalText
+      .split("")
+      .map((letter, index) => {
+        if (letter === " ") return " ";
+        // Aos poucos, revela a letra original
+        if (index < Math.floor(iterations)) {
+          return originalText[index];
+        }
+        // Letras aleatórias para as que ainda não foram reveladas
+        return alphabets[Math.floor(Math.random() * alphabets.length)];
+      })
+      .join("");
+
+    if (iterations >= originalText.length) {
+      clearInterval(interval);
+      element.innerText = originalText;
+    }
+
+    // Controle de quão rápido as letras se revelam (menor = mais demorado)
+    iterations += 1 / 4; 
+  }, speed);
+}
+
+// Aplicar apenas aos números do cronômetro no carregamento da página
+window.addEventListener('DOMContentLoaded', () => {
+  const elements = [
+    document.getElementById('days'),
+    document.getElementById('hours'),
+    document.getElementById('minutes'),
+    document.getElementById('seconds')
+  ];
+  
+  elements.forEach(el => {
+    if(el) {
+      setTimeout(() => scrambleText(el), 100); // Atraso sutil para garantir inicialização
+    }
+  });
+});
+
+</script>
+  </body>
+</html>
