@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>18 Anos - Aymmê</title>
+
+  <!-- Google Fonts: Playfair Display para elegância, Inter para leitura moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: "#902542", // Vinho/Rosa escuro elegante (baseado na imagem)
+              light: "#FDF2F8", // Fundo bem clarinho
+              pink: "#F472B6",
+              rose: "#FDA4AF",
+            },
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            serif: ["Playfair Display", "serif"],
+          },
+          animation: {
+            "fade-in": "fadeIn 0.3s ease-out forwards",
+            "slide-up": "slideUp 0.4s ease-out forwards",
+            "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+          },
+          keyframes: {
+            fadeIn: {
+              "0%": { opacity: "0" },
+              "100%": { opacity: "1" },
+            },
+            slideUp: {
+              "0%": { opacity: "0", transform: "translateY(20px)" },
+              "100%": { opacity: "1", transform: "translateY(0)" },
+            },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #fce7f3;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      background-image: url('https://img.magnific.com/vetores-gratis/elegante-fundo-de-tinta-de-alcool-rosa-pastel-pintado-a-mao_1048-19138.jpg?semt=ais_hybrid&w=740&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px);
+      z-index: -2;
+    }
+
+    /* Ocultar barra de rolagem mas permitir scroll no body se necessário em telas muito pequenas */
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Flores decorativas baseadas na imagem de referência */
+    .floral-bg {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 10 C30 10 20 30 20 50 C20 70 30 90 50 90 C70 90 80 70 80 50 C80 30 70 10 50 10 Z" fill="rgba(244,114,182,0.15)"/></svg>');
+      background-size: cover;
+      z-index: -1;
+      filter: blur(12px);
+      pointer-events: none;
+    }
+
+    @media (min-width: 768px) {
+      .floral-bg {
+        width: 500px;
+        height: 500px;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="text-gray-800 antialiased min-h-screen relative overflow-x-hidden flex flex-col justify-center py-10 px-4 md:px-8">
+  <!-- Flores de fundo (CSS) globais -->
+  <div class="floral-bg -top-20 -left-20"></div>
+  <div class="floral-bg -bottom-20 -right-20"></div>
+
+  <main class="w-full max-w-2xl mx-auto animate-fade-in relative z-10 flex flex-col items-center">
+    <div class="text-center mb-10 md:mb-16">
+      <p class="text-brand-dark/80 text-sm md:text-base font-semibold tracking-[0.2em] uppercase mb-4">
+        Venha celebrar meus
+      </p>
+      <h1 class="font-serif text-6xl md:text-8xl text-brand-dark mb-2 leading-none">
+        Aymmê
+      </h1>
+      <h2 class="font-serif text-5xl md:text-6xl text-brand-dark/90 italic">
+        18 anos
+      </h2>
+    </div>
+
+    <div
+      class="w-full bg-white/30 backdrop-blur-2xl rounded-[40px] p-6 md:p-12 mb-8 md:mb-12 shadow-2xl border border-white/40 relative overflow-hidden">
+      <!-- Detalhe decorativo interno -->
+
+
+      <div
+        class="flex flex-col md:flex-row justify-between items-center border-b border-brand-dark/10 pb-8 mb-8 gap-6 md:gap-0">
+        <div class="text-center w-full md:w-1/3">
+          <p class="text-sm font-semibold text-brand-dark uppercase tracking-widest">
+            Sábado
+          </p>
+        </div>
+        <div class="text-center w-full md:w-1/3 md:border-x border-brand-dark/10 py-4 md:py-0">
+          <p class="text-sm font-semibold text-brand-dark uppercase tracking-widest mb-[-4px]">
+            Outubro
+          </p>
+          <p class="text-6xl font-serif text-brand-dark my-2">17</p>
+          <p class="text-sm font-medium text-brand-dark/70">2026</p>
+        </div>
+        <div class="text-center w-full md:w-1/3">
+          <p class="text-sm font-semibold text-brand-dark uppercase tracking-widest">
+            Às 20:00
+          </p>
+        </div>
+      </div>
+
+      <!-- Contagem Regressiva -->
+      <div class="text-center">
+        <p class="text-xs md:text-sm font-semibold text-brand-dark/70 uppercase tracking-widest mb-4">
+          Faltam
+        </p>
+        <div class="flex justify-center gap-4 md:gap-8" id="countdown">
+          <div class="flex flex-col items-center">
+            <span class="text-3xl md:text-4xl font-bold text-brand-dark" id="days">00</span>
+            <span class="text-[10px] md:text-xs uppercase tracking-wider text-brand-dark/60 mt-1">Dias</span>
+          </div>
+          <span class="text-3xl md:text-4xl font-bold text-brand-dark/30">:</span>
+          <div class="flex flex-col items-center">
+            <span class="text-3xl md:text-4xl font-bold text-brand-dark" id="hours">00</span>
+            <span class="text-[10px] md:text-xs uppercase tracking-wider text-brand-dark/60 mt-1">Horas</span>
+          </div>
+          <span class="text-3xl md:text-4xl font-bold text-brand-dark/30">:</span>
+          <div class="flex flex-col items-center">
+            <span class="text-3xl md:text-4xl font-bold text-brand-dark" id="minutes">00</span>
+            <span class="text-[10px] md:text-xs uppercase tracking-wider text-brand-dark/60 mt-1">Min</span>
+          </div>
+          <span class="text-3xl md:text-4xl font-bold text-brand-dark/30">:</span>
+          <div class="flex flex-col items-center">
+            <span class="text-3xl md:text-4xl font-bold text-brand-dark" id="seconds">00</span>
+            <span class="text-[10px] md:text-xs uppercase tracking-wider text-brand-dark/60 mt-1">Seg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-sm md:text-base text-center text-brand-dark/80 font-medium mb-8">
+      Clique nos ícones abaixo para interagir:
+    </p>
+
+    <div class="flex flex-row justify-center items-end gap-6 md:gap-12 w-full mb-12">
+      <!-- Botão 1: Local -->
+      <a href="https://www.google.com/maps/search/?api=1&query=Condominio+parque+das+arvores,+salão+de+festas,+Aracaju"
+        target="_blank" rel="noopener noreferrer"
+        class="group flex flex-col items-center gap-3 transition-transform hover:-translate-y-1 active:scale-95">
+        <div
+          class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/80 backdrop-blur border border-brand-rose flex justify-center items-center shadow-md group-hover:shadow-lg group-hover:bg-brand-rose/20 transition-all duration-300">
+          <svg class="w-7 h-7 md:w-8 md:h-8 text-brand-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
+              d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
+              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+        </div>
+        <span class="text-xs md:text-sm font-semibold text-brand-dark uppercase text-center tracking-wider">Local
+          da<br />Festa</span>
+      </a>
+
+      <!-- Botão 2: Confirmar Presença (Destaque) -->
+      <a href="https://wa.me/5579988281897?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%2018%20anos%20da%20Aymm%C3%AA!"
+        target="_blank" rel="noopener noreferrer"
+        class="group flex flex-col items-center gap-3 transition-transform hover:-translate-y-2 active:scale-95 pb-4">
+        <div
+          class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white backdrop-blur border-2 border-brand-dark flex justify-center items-center shadow-xl animate-pulse-slow group-hover:bg-brand-dark group-hover:text-white transition-colors duration-300 relative">
+          <!-- Anel decorativo externo -->
+          <div class="absolute inset-[-6px] border border-brand-dark/20 rounded-full"></div>
+
+          <svg class="w-8 h-8 md:w-10 md:h-10 text-brand-dark group-hover:text-white transition-colors" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
+              d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <span
+          class="text-xs md:text-sm font-bold text-brand-dark uppercase text-center tracking-wider">Confirmar<br />Presença</span>
+      </a>
+
+      <!-- Botão 3: Sugestão de Presente -->
+      <button onclick="openModal()"
+        class="group flex flex-col items-center gap-3 transition-transform hover:-translate-y-1 active:scale-95">
+        <div
+          class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/80 backdrop-blur border border-brand-rose flex justify-center items-center shadow-md group-hover:shadow-lg group-hover:bg-brand-rose/20 transition-all duration-300">
+          <svg class="w-7 h-7 md:w-8 md:h-8 text-brand-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"
+              d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+          </svg>
+        </div>
+        <span class="text-xs md:text-sm font-semibold text-brand-dark uppercase text-center tracking-wider">Sugestão
+          de<br />Presente</span>
+      </button>
+    </div>
+
+    <p class="text-sm md:text-base font-serif italic text-brand-dark/70 mt-4">
+      Com carinho, Aymmê.
+    </p>
+  </main>
+
+  <div id="giftModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-brand-dark/40 backdrop-blur-sm transition-opacity duration-300 opacity-0">
+    <!-- Fundo clicável para fechar -->
+    <div class="absolute inset-0" onclick="closeModal()"></div>
+
+    <div
+      class="bg-white/95 backdrop-blur-md rounded-[32px] w-full max-w-sm max-h-[85vh] overflow-hidden shadow-2xl relative flex flex-col transform translate-y-8 transition-transform duration-300"
+      id="modalContent">
+      <!-- Modal Header -->
+      <div
+        class="p-6 pb-4 border-b border-brand-rose/30 flex justify-between items-center bg-brand-light/50 sticky top-0 z-10">
+        <h3 class="font-serif text-xl font-semibold text-brand-dark flex items-center gap-2">
+          <span>🎁</span> Sugestões de Presentes
+        </h3>
+        <button onclick="closeModal()"
+          class="w-8 h-8 rounded-full bg-brand-dark/5 flex items-center justify-center text-brand-dark hover:bg-brand-dark/10 transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Body com a lista -->
+      <div class="p-6 overflow-y-auto no-scrollbar space-y-5 flex-1">
+        <!-- Categoria: Roupas -->
+        <div>
+          <h4 class="text-sm font-bold text-brand-dark uppercase tracking-wider mb-2 flex items-center gap-2">
+            <span>👗</span> Roupas
+          </h4>
+          <ul class="text-sm text-gray-700 ml-6 space-y-1">
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              P ou PP
+            </li>
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Calça: 36
+            </li>
+          </ul>
+        </div>
+
+        <!-- Categoria: Calçados -->
+        <div>
+          <h4 class="text-sm font-bold text-brand-dark uppercase tracking-wider mb-2 flex items-center gap-2">
+            <span>👟</span> Calçados
+          </h4>
+          <ul class="text-sm text-gray-700 ml-6 space-y-1">
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Tamanho: 37/38
+            </li>
+          </ul>
+        </div>
+
+        <!-- Categoria: Perfumaria -->
+        <div>
+          <h4 class="text-sm font-bold text-brand-dark uppercase tracking-wider mb-2 flex items-center gap-2">
+            <span>🌸</span> Perfumaria
+          </h4>
+          <ul class="text-sm text-gray-700 ml-6 space-y-1">
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Doce floral
+            </li>
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Doce Cítrico
+            </li>
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Doce Frutal
+            </li>
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Body splash
+            </li>
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Hidratantes
+            </li>
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Kits de perfumaria
+            </li>
+          </ul>
+        </div>
+
+        <!-- Categoria: Acessórios -->
+        <div>
+          <h4 class="text-sm font-bold text-brand-dark uppercase tracking-wider mb-2 flex items-center gap-2">
+            <span>✨</span> Acessórios
+          </h4>
+          <ul class="text-sm text-gray-700 ml-6 space-y-1">
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Bolsas
+            </li>
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Colares
+            </li>
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Pulseiras
+            </li>
+            <li class="relative before:content-['•'] before:absolute before:-left-3 before:text-brand-pink">
+              Tênis, sandálias ou rasteirinhas
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-5 bg-brand-rose/10 border-t border-brand-rose/20 text-center">
+        <p class="text-xs text-brand-dark/90 font-medium leading-relaxed">
+          🤍 Não precisa ser exatamente algo da lista, qualquer presente
+          escolhido com carinho vai me deixar feliz.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
